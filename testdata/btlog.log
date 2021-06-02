@@ -1,0 +1,3 @@
+2021-06-01T18:02:53.143+0800	debug	testing/testing.go:1050	helloworld
+2021-06-01T18:02:53.143+0800	info	testing/testing.go:1050	hello
+2021-06-01T18:02:53.143+0800	info	testing/testing.go:1050	helloworld
