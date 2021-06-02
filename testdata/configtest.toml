@@ -1,12 +1,6 @@
 # example:
 # proxy_url = "socks5://127.0.0.1:1080"
 
-[binancefutures]
-access_key = "CNlnOO6gAIyeJgCIwDUABGVOn5gdIctLuxx1SGRwwjM7u2xvUKHhPzRsvk3UzYu6"
-secret_key = "ijvxaJdtdtHtO5uxZPu3EFSWbAJo7Y5UmgFn80aUOa5DFxFLpljl8apHjT42kSTI"
-testnet = false
-proxy_url = "socks5://127.0.0.1:7890"
-
 [bitmex]
 access_key = ""
 secret_key = ""
