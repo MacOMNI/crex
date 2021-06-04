@@ -56,6 +56,7 @@ func (s *BasicStrategy) OnExit() error {
 func main() {
 	testConfig := configtest.LoadTestConfig("binancefutures")
 	// exchange := exchanges.NewBinanceFutures(params)
+	
 	exchange := exchanges.NewExchange(exchanges.BinanceFutures,
 		ApiProxyURLOption(testConfig.ProxyURL), // 使用代理
 		ApiAccessKeyOption(testConfig.AccessKey),

@@ -1,9 +1,10 @@
 package configtest
 
 import (
-	"github.com/BurntSushi/toml"
 	"log"
 	"path/filepath"
+
+	"github.com/BurntSushi/toml"
 )
 
 var (
@@ -27,6 +28,7 @@ type TestConfig struct {
 	Passphrase string `toml:"passphrase"`
 	Testnet    bool   `toml:"testnet"`
 	ProxyURL   string `toml:"proxy_url"`
+	DingTalk   string `toml:"dingtalk"`
 }
 
 func LoadTestConfig(name string) *TestConfig {

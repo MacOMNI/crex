@@ -13,7 +13,9 @@ require (
 	github.com/frankrap/deribit-api v1.0.3
 	github.com/frankrap/huobi-api v1.0.2
 	github.com/frankrap/okex-api v1.0.4
+	github.com/gin-gonic/gin v1.7.2
 	github.com/go-echarts/go-echarts v1.0.0
+	github.com/hugozhu/godingtalk v1.0.5
 	github.com/json-iterator/go v1.1.10
 	github.com/micro/go-micro v1.18.0 // indirect
 	github.com/rakyll/statik v0.1.7
