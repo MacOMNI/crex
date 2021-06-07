@@ -56,7 +56,7 @@ func main() {
 			c.Writer.Write(BuildDingMsg(err.Error()))
 			return
 		}
-		content := strings.ToUpper(message.Text.Content)
+		content := strings.ToUpper(strings.TrimSpace(message.Text.Content))
 		if _, err := Contain(content, coinArray); err != nil {
 			c.Writer.Write(BuildDingMsg(message.Text.Content))
 			return
@@ -74,7 +74,6 @@ func main() {
 		}
 		if positions != nil {
 			for _, v := range positions {
-				log.Printf("position: %#v", v)
 				// type Position struct {
 				// 	Symbol    string  `json:"symbol"`     // 标
 				// 	OpenPrice float64 `json:"open_price"` // 开仓价
@@ -83,12 +82,17 @@ func main() {
 				// 	Profit    float64 `json:"profit"`     //浮动盈亏
 				// }
 				var res string
-				res = "开仓币种: " + content
-				res = "\nUSD资产: " + fmt.Sprintf("%v", balance.Equity)
-				res = "\n可用资产: " + fmt.Sprintf("%v", balance.Available)
-				res = res + "\n开仓价 : " + fmt.Sprintf("%v", v.OpenPrice)
-				res = res + "\n仓位数量: " + fmt.Sprintf("%v", v.Size*-1)
-				res = res + "\n平均价格: " + fmt.Sprintf("%v", v.AvgPrice)
+				res = "合约币种: " + v.Symbol
+				res = res + "\n资产净值: " + fmt.Sprintf("%v", balance.Equity)
+				res = res + "\n可用资产: " + fmt.Sprintf("%v", balance.Available)
+				res = res + "\n当前价格: " + fmt.Sprintf("%v", v.MarkPrice)
+				res = res + "\n持仓价格: " + fmt.Sprintf("%v", v.AvgPrice)
+				if v.Size < 0 { //做空
+					res = res + "\n空单数量: " + fmt.Sprintf("%v", v.Size*-1)
+				} else { // 做多
+					res = res + "\n多单数量: " + fmt.Sprintf("%v", v.Size*-1)
+				}
+				res = res + "\n合约倍数: " + fmt.Sprintf("%v", v.Leverage)
 				res = res + "\n浮动盈亏: " + fmt.Sprintf("%v", v.Profit)
 				c.Writer.Write(BuildDingMsg(res))
 			}
