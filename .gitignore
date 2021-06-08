@@ -25,3 +25,7 @@
 *.html
 testdata
 *.toml
+.DS_Store
+cmd/.DS_Store
+examples/.DS_Store
+exchanges/.DS_Store
